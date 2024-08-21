@@ -1,0 +1,18 @@
+---
+
+- name: Обновление системы, установка и настройка Nginx, создание пользователей
+  hosts: webservers
+  become: true
+  vars:
+    vpn_port: 2053
+    domain_name: 081law.vardidze.ru
+    email: alexshevcov24@gmail.com
+    users:
+      - name: rostom
+        ssh_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC9tMcZl/DWK7NeyxFoeqOovBEJcBjE5YQERqDl/SoFayhozaDwrUfIMyFdW/mZ/wb5GRJVzXZULbGYFL8g74HuxKEeuNMFV2hKZuAlsy9g0qNC/opQIZmPlY9HaMqmf1fGpgLPVDoiuzbm7YYLk/h58GsSWWf1dQv270iCUbGlN1dBcMSygeX4tJst1RL5k3MqyyjxUGFxOD5bhuv7PmThzFacadHRqnqotMXeV0GWJAUiwZFL4qYgV/G4mgoMQZfc9nNM2NFyysPndh9myxo8fN9G0sOMIjq08dKC8dQ7AkHhcsJvdiTdVtaRmKwaAmIklXv6PZvxzEn92gg+wkC8E5EdBngDTNh4f56f7GPkRQGB70gkqQlD3k0IVo2NM5XaecNgPBfMmuzwf6FLR4q1023ev6HVrhVmEWx7o4qup8hdmpysp0dJ5Yz0cUtncarjhb2bH4I5TiWNxBUX6ZjTJPXB1FR0dDlvQ4Jh2ZLxFQjMTJu5bKP3fqpzTcV8U4c= ivanp@ivan-bohkwax9x"
+      - name: ahmad
+        ssh_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDSKcn+4W8OGEYU3VYNGW31VfERnBQr3n2ly2krNd8GkxsdlmkjzxmbNGwYPNXXsXNGD5fz3AvSMXsGPbbMZ0xeerrWi4ixVdrZgKU2vfkVTP7QyI1lbqBGpEh9uAYiKbSCRg13KCyt6A1ID/YhhgALkdAXJFaaPj9tuoc3XZDYOncgSCowzGFTc5ZeiJ3hCuErlkY5XFPo1f/PHjDAkodM2q8CI8jmXCu+0eZ8OZHDm/ileDl9W0LMK9hNY/EDRo2BD82R1c5MTCfTQIAfWcHNklcVbHx0s11F/ns3LX82Yrg08IZAYYm/50Xb98QtjBIXQTT8td6T6IJ/6UiFSnojzMzteAiA/1kCF4q0ioRk5jTzKGwsAY1OrIJ+Oxk0sJnsVypX2NDuJF6WLXBYI/LxklpU4YhM/DH2cZUFLdpiS41wTLQTG4FrraJyKaVRbJ+GfhXOrKAHoVCRR/zgKS6d2CzfxmZgQTWjGFAYMxklCnWrvhGD2klAB7IEZ4fgpCU= abulaysov@Air-Abulaysov"
+  tags: vpn-server
+  gather_facts: true
+  roles:
+    - vpn-server-role

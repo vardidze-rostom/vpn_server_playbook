@@ -1,0 +1,5 @@
+---
+
+- src: git+https://github.com/vardidze-rostom/vpn_server_role.git
+  version: main
+  name: vpn-server-role
